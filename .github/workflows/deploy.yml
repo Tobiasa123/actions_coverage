@@ -36,7 +36,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Check test coverage
-        run: |
+        run: /
           if [ ! -f ./coverage/coverage-summary.json ]; then
             echo "Coverage report not found"
             exit 1
