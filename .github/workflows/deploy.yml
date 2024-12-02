@@ -36,10 +36,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Check test coverage
-        run: /
+        run: |
           if [ ! -f ./coverage/coverage-summary.json ]; then
-          echo "Coverage report not found"
-          exit 1
+            echo "Coverage report not found"
+            exit 1
           fi 
 
           echo "Coverage report found"
@@ -48,8 +48,8 @@ jobs:
           echo "Test covarage is ${COVERAGE}%"
 
           if (( $(echo "$COVERAGE < 85" | bc -l) )); then
-          echo "Test coverage is below 85%, cannot deploy."
-          exit 1
+            echo "Test coverage is below 85%, cannot deploy."
+            exit 1
           fi
 
   deploy:
